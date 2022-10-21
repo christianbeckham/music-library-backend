@@ -146,6 +146,32 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Like_Song_By_Id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/music/2/like/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"music",
+						"2",
+						"like",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
