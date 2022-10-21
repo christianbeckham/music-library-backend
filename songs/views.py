@@ -37,10 +37,10 @@ def songs_detail(request, pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-@api_view(['PATCH'])
+@api_view(['POST'])
 def like_song(request, pk):
     song = get_object_or_404(Song, pk=pk)
-    if request.method == 'PATCH':
+    if request.method == 'POST':
         song.likes_count += 1
         song.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
