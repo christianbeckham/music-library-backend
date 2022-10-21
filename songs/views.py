@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -19,3 +19,11 @@ def songs_list(request):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+@api_view(['GET'])
+def songs_details(request, pk):
+    song = get_object_or_404(Song, pk=pk)
+    if request.method == 'GET':
+        serializer = SongSerializer(song)
+        return Response(serializer.data, status=status.HTTP_200_OK)
